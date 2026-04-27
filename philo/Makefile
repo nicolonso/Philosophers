@@ -5,7 +5,7 @@ NAME				= philosophers
 
 
 # Directories
-HDR					= hdr/
+HDR					= include/
 SRC_DIR				= src/
 OBJ_DIR				= obj/
 
@@ -17,7 +17,7 @@ RM					= rm -f
 
 # Source Files
 
-PHILOSOPHERS_DIR	= $(SRC_DIR)Philosophers/philosophers.c
+PHILOSOPHERS_DIR	= $(SRC_DIR)main.c
 
 PARSING_DIR			= $(SRC_DIR)Parsing/parsing.c	
 
@@ -37,6 +37,7 @@ $(LIBFT):
 
 $(NAME): 			$(OBJ)
 					@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+					@echo "philo compiled"
 
 # Compile object files from source files
 $(OBJ_DIR)%.o:		$(SRC_DIR)%.c 
@@ -45,7 +46,6 @@ $(OBJ_DIR)%.o:		$(SRC_DIR)%.c
 
 clean:
 					@$(RM) -r $(OBJ_DIR)
-					@make clean -C ./Lib
 
 fclean: 			clean
 					@$(RM) $(NAME)

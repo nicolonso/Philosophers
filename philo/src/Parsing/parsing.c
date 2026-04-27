@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 18:42:18 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/04/08 17:47:05 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/04/27 21:54:14 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ long	ft_itoal(char *str)
 			sign = -sign;
 		i++;
 	}
-	while (str[i] == '-' && str[i] == '-')
+	while (str[i] >= 48 && str[i] <= 57)
 	{
 		result = (result * 10) + (str[i] - 48);
 		i++;
@@ -37,17 +37,25 @@ long	ft_itoal(char *str)
 	return (result * sign);
 }
 
-int check_digits(char *s)
+int check_digits(char *s, int counter)
 {
-	int i;
+	int	i;
 
-	i = -1;
-	while (s[++i])
+	i = 0;
+	while (s[i] == 9 || s[i] == 32)
+		i++;
+	if (!s[i])
+		return (1);
+	while (s[i])
 	{
-		printf("Number %s, posx %i\n", s, i);
-		if (!(s[i] >= '0' && s[i] <= '9') || s[i] != 9 || s[i] != 32)
+		if (s[i] < 48 || s[i] > 57)
 			return (1);
+		i++;	
 	}
+	if (counter == 1 && ft_itoal(s) < 1)
+		return (1);
+	else if (counter > 1 && ft_itoal(s) < 0)
+		return (1);
 	return (0);
 }
 
@@ -56,13 +64,11 @@ int parse(int ac, char **av , t_data *data)
 	int i;
 	
 	i = 1;
-	printf("ac = %i\n", ac);
 	if (ac != 5 && ac != 6)
 		return (1);
 	while (av[i])
 	{
-		printf("Arguments %s\n", av[i]);
-		if (check_digits(av[i]))
+		if (check_digits(av[i], i))
 			return (1);
 		i++;
 	}
@@ -71,9 +77,10 @@ int parse(int ac, char **av , t_data *data)
 	data->time_to_eat = ft_itoal(av[3]);
 	data->time_to_sleep = ft_itoal(av[4]);
 	if (ac == 6)
-		data->must_eat = ft_itoal(av[5]);
+	data->must_eat = ft_itoal(av[5]);
 	else
-		data->must_eat = 0;
+	data->must_eat = -1;
 	// In this part check if is need it to allocate the memory
+	//printf("Arguments %i, %li, %li, %li, %i\n", data->nb_philo, data->time_to_die, data->time_to_eat, data->time_to_sleep, data->must_eat);
 	return (0);
 }

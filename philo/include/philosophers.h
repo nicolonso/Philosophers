@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:53:30 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/04/08 17:19:54 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/04/27 21:48:26 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_data
 //---------------Parsing-------------------------
 
 long	ft_itoal(char *str);
-int		check_digits(char *s);
+int check_digits(char *s, int counter);
 int		parse(int ac, char **av , t_data *data);
 
 #endif
