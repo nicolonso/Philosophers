@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:58:16 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/04/08 17:31:04 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/04/27 22:09:46 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 
 	if (parse(ac, av, &data))
 	{
-		printf("Parametrers are incorrect\n");
+		write (stderr, "Parametrers are incorrect\n", 27);
 		return (1);
 	}
 	return (0);
