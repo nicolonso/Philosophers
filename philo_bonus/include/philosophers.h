@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:53:30 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/04/27 22:42:25 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/04/27 22:19:28 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include <time.h>
 #include <pthread.h> // Learn about this library
 #include <sys/time.h> // Standard C library (libc, -lc)
 
