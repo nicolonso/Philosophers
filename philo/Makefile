@@ -21,6 +21,8 @@ PHILOSOPHERS_DIR	=	$(SRC_DIR)main.c
 
 PARSING_DIR			=	$(SRC_DIR)Parsing/parsing.c	
 
+INIT_DIR			= 	$(SRC_DIR)Init/init.c
+
 UTILS_DIR			=	$(SRC_DIR)Utils/time.c \
 						$(SRC_DIR)Utils/cleanup.c \
 						$(SRC_DIR)Utils/log.c \
@@ -28,7 +30,7 @@ UTILS_DIR			=	$(SRC_DIR)Utils/time.c \
 
 # Concatenate all source files
 
-SRCS 				= $(PHILOSOPHERS_DIR) $(PARSING_DIR) $(UTILS_DIR)
+SRCS 				= $(PHILOSOPHERS_DIR) $(PARSING_DIR) $(UTILS_DIR) $(INIT_DIR)
 
 # Apply the pattern substitution to each source file in SRC and produce a corresponding list of object files in the OBJ_DIR
 OBJ 				= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
@@ -36,9 +38,6 @@ OBJ 				= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 # Build rules
 
 all: 				$(NAME)
-
-$(LIBFT):
-					@make -C ./Lib
 
 $(NAME): 			$(OBJ)
 					@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)

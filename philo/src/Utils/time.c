@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 22:11:38 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/04/27 22:45:06 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/04/29 20:53:41 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	ft_usleep(long ms, t_data *data)
 	start = get_time_ms();
 	while((get_time_ms() - start) < ms)
 	{
-		pthread_mutex_lock(data->stop_mutex);
+		pthread_mutex_lock(&data->stop_mutex);
 		stopped = data->stop;
-		pthread_mutex_unlock(data->stop_mutex);
+		pthread_mutex_unlock(&data->stop_mutex);
 		if (stopped)
 			return (-1);
 		usleep(500);

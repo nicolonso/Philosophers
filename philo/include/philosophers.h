@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:53:30 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/04/27 22:42:25 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/04/29 21:31:23 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_philosophers
 typedef struct s_data
 {
 	int				nb_philo;
-	int				must_eat;
+	long			must_eat;
 	int				stop;
 	long			start_time;
 	long			time_to_die;
@@ -48,9 +48,9 @@ typedef struct s_data
 	long			time_to_sleep;
 	t_philo			*philos;
 	pthread_mutex_t	*forks;
-	pthread_mutex_t	*print_mutex;
-	pthread_mutex_t	*stop_mutex;
-	pthread_mutex_t	*meal_mutex;
+	pthread_mutex_t	print_mutex;
+	pthread_mutex_t	stop_mutex;
+	pthread_mutex_t	meal_mutex;
 }					t_data;
 
 
@@ -64,5 +64,10 @@ int		parse(int ac, char **av , t_data *data);
 
 long	get_time_ms(void);
 int		ft_usleep(long ms, t_data *data);
+
+/* ── init / cleanup ──────────────────────────────────────── */
+
+int		init_data(t_data *data);
+void	cleanup(t_data *data);
 
 #endif
