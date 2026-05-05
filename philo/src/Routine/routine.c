@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 22:22:42 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/05 23:25:55 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/05 23:30:53 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	*routine(void *arg)
 		eat(p);
 		pthread_mutex_unlock(p->left_fork);
 		pthread_mutex_unlock(p->right_fork);
-		log_state(p, "is slepping");
+		log_state(p, "is sleeping");
 		ft_usleep(p->data->time_to_sleep, p->data);
 	}
 	return (NULL);
