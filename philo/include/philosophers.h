@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:53:30 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/04/29 21:31:23 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/05 21:56:14 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,10 @@ int		ft_usleep(long ms, t_data *data);
 
 int		init_data(t_data *data);
 void	cleanup(t_data *data);
+
+/* ── routine / log ──────────────────────────────────────── */
+
+void	*routine(void *arg);
+void	log_state(t_philo *p, char *state);
 
 #endif
