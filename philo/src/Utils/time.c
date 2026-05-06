@@ -6,11 +6,11 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 22:11:38 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/04/29 20:53:41 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/06 22:56:15 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "philosophers.h"
+#include "philosophers.h"
 
 long	get_time_ms(void)
 {
@@ -19,7 +19,6 @@ long	get_time_ms(void)
 	if (gettimeofday(&tv, NULL) != 0)
 		return (-1);
 	return ((long)tv.tv_sec * 1000L + (long)tv.tv_usec / 1000L);
-	
 }
 
 int	ft_usleep(long ms, t_data *data)
@@ -28,7 +27,7 @@ int	ft_usleep(long ms, t_data *data)
 	int		stopped;
 
 	start = get_time_ms();
-	while((get_time_ms() - start) < ms)
+	while ((get_time_ms() - start) < ms)
 	{
 		pthread_mutex_lock(&data->stop_mutex);
 		stopped = data->stop;

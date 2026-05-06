@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 22:22:49 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/06 19:47:01 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/06 22:53:11 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	all_fed(t_data *data)
 	return (fed);
 }
 
-static void	declare_death(t_data *data, int	dead_id)
+static void	declare_death(t_data *data, int dead_id)
 {
 	long	ts;
 

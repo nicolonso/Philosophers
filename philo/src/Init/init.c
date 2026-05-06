@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 21:15:32 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/04/29 22:14:25 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/06 22:56:48 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	init_forks(t_data *data)
 {
-	int 	i;
+	int	i;
 
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->nb_philo);
 	if (!data->forks)
@@ -35,7 +35,7 @@ static int	init_forks(t_data *data)
 	return (0);
 }
 
-static int init_global_mutexes(t_data *data)
+static int	init_global_mutexes(t_data *data)
 {
 	if (pthread_mutex_init(&data->print_mutex, NULL) != 0)
 		return (1);
@@ -53,7 +53,7 @@ static int init_global_mutexes(t_data *data)
 	return (0);
 }
 
-static void populate_philos(t_data *data)
+static void	populate_philos(t_data *data)
 {
 	int	i;
 

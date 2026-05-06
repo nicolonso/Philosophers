@@ -6,21 +6,20 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:53:30 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/06 19:06:23 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/06 22:58:19 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILOSOPHERS_H
-#define PHILOSOPHERS_H
+# define PHILOSOPHERS_H
 
 /* ── libraries ──────────────────────────────────────── */
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <time.h>
-#include <pthread.h> // Learn about this library
-#include <sys/time.h> // Standard C library (libc, -lc)
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <time.h>
+# include <pthread.h> // Learn about this library
+# include <sys/time.h> // Standard C library (libc, -lc)
 
 /* ── structs ──────────────────────────────────────── */
 
@@ -53,12 +52,11 @@ typedef struct s_data
 	pthread_mutex_t	meal_mutex;
 }					t_data;
 
-
 /* ── parsing ──────────────────────────────────────── */
 
 long	ft_itoal(char *str);
-int 	check_digits(char *s, int counter);
-int		parse(int ac, char **av , t_data *data);
+int		check_digits(char *s, int counter);
+int		parse(int ac, char **av, t_data *data);
 
 /* ── time helpers ──────────────────────────────────────── */
 

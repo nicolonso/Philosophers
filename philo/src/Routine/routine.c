@@ -6,22 +6,23 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 22:22:42 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/05 23:30:53 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/06 22:52:45 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-static int   stopped(t_data *data)
+static int	stopped(t_data *data)
 {
-	int v;
+	int	v;
 
 	pthread_mutex_lock(&data->stop_mutex);
 	v = data->stop;
 	pthread_mutex_unlock(&data->stop_mutex);
 	return (v);
 }
-static void  take_forks(t_philo *p)
+
+static void	take_forks(t_philo *p)
 {
 	pthread_mutex_t	*first;
 	pthread_mutex_t	*second;
@@ -42,7 +43,7 @@ static void  take_forks(t_philo *p)
 	log_state(p, "has taken a fork");
 }
 
-static void eat(t_philo *p)
+static void	eat(t_philo *p)
 {
 	pthread_mutex_lock(&p->data->meal_mutex);
 	p->last_meal = get_time_ms();
@@ -56,14 +57,14 @@ void	*routine(void *arg)
 {
 	t_philo	*p;
 
-	p = (t_philo *)arg; //Learn more about this convertion
+	p = (t_philo *)arg;
 	if (p->data->nb_philo == 1)
 	{
 		log_state(p, "has taken a fork");
 		ft_usleep(p->data->time_to_die + 10, p->data);
 		return (NULL);
 	}
-	if  (p->id % 2 == 0)
+	if (p->id % 2 == 0)
 		ft_usleep(p->data->time_to_eat / 2, p->data);
 	while (!stopped(p->data))
 	{
