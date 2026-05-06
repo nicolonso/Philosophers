@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:53:30 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/06 22:58:19 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/06 23:03:44 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,9 @@ void	log_state(t_philo *p, char *state);
 /* ── monitor ──────────────────────────────────────── */
 
 void	*monitor(void *arg);
+/* ── pthreads ──────────────────────────────────────── */
+
+void	join_threads(t_data *data);
+int		start_threads(t_data *data);
 
 #endif

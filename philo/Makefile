@@ -30,6 +30,7 @@ MONITOR_DIR			=	$(SRC_DIR)Monitor/monitor.c
 UTILS_DIR			=	$(SRC_DIR)Utils/time.c \
 						$(SRC_DIR)Utils/cleanup.c \
 						$(SRC_DIR)Utils/log.c \
+						$(SRC_DIR)Utils/pthreads.c
 
 
 # Concatenate all source files
