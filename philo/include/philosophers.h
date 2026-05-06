@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:53:30 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/05 21:56:14 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/06 19:06:23 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,8 @@ void	cleanup(t_data *data);
 
 void	*routine(void *arg);
 void	log_state(t_philo *p, char *state);
+/* ── monitor ──────────────────────────────────────── */
+
+void	*monitor(void *arg);
 
 #endif
