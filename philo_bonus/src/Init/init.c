@@ -6,9 +6,52 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 21:15:32 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/04/27 22:22:58 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/07 22:15:09 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
+static void	unlink_all_sems(void)
+{
+	sem_unlink(SEM_FORKS);
+	sem_unlink(SEM_PRINT);
+	sem_unlink(SEM_DEATH);
+}
+
+static int	open_all_sems(t_data *data)
+{
+	data->forks = sem_open(SEM_FORKS, O_CREAT | O_EXCL, 0644,
+			data->nb_philo);
+	if (data->forks == SEM_FAILED)
+		return (1);
+	data->print = sem_open(SEM_PRINT, O_CREAT | O_EXCL, 0644, 1);
+	if (data->print == SEM_FAILED)
+		return (1);
+	data->death = sem_open(SEM_DEATH, O_CREAT | O_EXCL, 0644, 0);
+	if (data->death == SEM_FAILED)
+		return (1);
+	return (0);	
+}
+
+int	init_data(t_data *data)
+{
+	data->start_time = get_time_ms();
+	data->forks = SEM_FAILED;
+	data->print = SEM_FAILED;
+	data->death = SEM_FAILED;
+	data->pids = NULL;
+	unlink_all_sems();
+	if (open_all_sems(data))
+	{
+		cleanup(data);
+		return (1);
+	}
+	data->pids = malloc(sizeof(pid_t) * data->nb_philo);
+	if (!data->pids)
+	{
+		cleanup(data);
+		return (1);
+	}
+	return (0);
+}

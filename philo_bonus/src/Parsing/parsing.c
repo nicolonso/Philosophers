@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 18:42:18 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/04/27 21:54:14 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/06 22:55:24 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ long	ft_itoal(char *str)
 	i = 0;
 	result = 0;
 	sign = 1;
-	while ((str[i] >= 9 && str[i]<= 13) || str[i] == 32)
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
@@ -37,7 +37,7 @@ long	ft_itoal(char *str)
 	return (result * sign);
 }
 
-int check_digits(char *s, int counter)
+int	check_digits(char *s, int counter)
 {
 	int	i;
 
@@ -50,7 +50,7 @@ int check_digits(char *s, int counter)
 	{
 		if (s[i] < 48 || s[i] > 57)
 			return (1);
-		i++;	
+		i++;
 	}
 	if (counter == 1 && ft_itoal(s) < 1)
 		return (1);
@@ -59,10 +59,10 @@ int check_digits(char *s, int counter)
 	return (0);
 }
 
-int parse(int ac, char **av , t_data *data)
+int	parse(int ac, char **av, t_data *data)
 {
-	int i;
-	
+	int	i;
+
 	i = 1;
 	if (ac != 5 && ac != 6)
 		return (1);
@@ -77,10 +77,8 @@ int parse(int ac, char **av , t_data *data)
 	data->time_to_eat = ft_itoal(av[3]);
 	data->time_to_sleep = ft_itoal(av[4]);
 	if (ac == 6)
-	data->must_eat = ft_itoal(av[5]);
+		data->must_eat = ft_itoal(av[5]);
 	else
-	data->must_eat = -1;
-	// In this part check if is need it to allocate the memory
-	//printf("Arguments %i, %li, %li, %li, %i\n", data->nb_philo, data->time_to_die, data->time_to_eat, data->time_to_sleep, data->must_eat);
+		data->must_eat = -1;
 	return (0);
 }

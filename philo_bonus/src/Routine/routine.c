@@ -6,9 +6,8 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 22:22:42 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/04/27 22:22:46 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/07 22:17:36 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
-
