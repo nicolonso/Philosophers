@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:53:30 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/07 21:49:26 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/09 16:55:36 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 # define SEM_FORKS "/philo_forks"
 # define SEM_PRINT "/philo_print"
 # define SEM_DEATH "/philo_death"
+# define SEM_DONE "/philo_done"
+# define SEM_EATERS	"/philo_eaters"
 
 /* ── structs ──────────────────────────────────────── */
 
@@ -37,6 +39,7 @@ typedef struct s_data	t_data;
 typedef struct s_philosophers
 {
 	int				id;
+	int				done;
 	long			meals_eaten;
 	long			last_meal;
 	t_data			*data;	
@@ -56,6 +59,8 @@ typedef struct s_data
 	sem_t			*forks;
 	sem_t			*print;
 	sem_t			*death;
+	sem_t			*done;
+	sem_t			*eaters;
 }					t_data;
 
 /* ── parsing ──────────────────────────────────────── */
@@ -73,5 +78,14 @@ void	ft_usleep(long ms);
 
 int		init_data(t_data *data);
 void	cleanup(t_data *data);
+
+/* ── log ──────────────────────────────────────────────── */
+
+void	log_print(t_philo *p, char *state);
+
+/* ── child / supervisor ───────────────────────────────── */
+
+void	child_run(int id, t_data *data);
+int		supervise(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 21:15:32 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/07 22:15:09 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/09 16:57:15 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void	unlink_all_sems(void)
 	sem_unlink(SEM_FORKS);
 	sem_unlink(SEM_PRINT);
 	sem_unlink(SEM_DEATH);
+	sem_unlink(SEM_DONE);
+	sem_unlink(SEM_EATERS);
 }
 
 static int	open_all_sems(t_data *data)
@@ -31,6 +33,13 @@ static int	open_all_sems(t_data *data)
 	data->death = sem_open(SEM_DEATH, O_CREAT | O_EXCL, 0644, 0);
 	if (data->death == SEM_FAILED)
 		return (1);
+	data->done = sem_open(SEM_DONE, O_CREAT | O_EXCL, 0644, 0);
+	if (data->done == SEM_FAILED)
+		return (1);
+	data->eaters = sem_open(SEM_EATERS, O_CREAT | O_EXCL, 0644,
+		(data->nb_philo / 2 > 0) ? data->nb_philo / 2 : 1);
+	if (data->eaters == SEM_FAILED)
+		return (1);
 	return (0);	
 }
 
@@ -40,6 +49,8 @@ int	init_data(t_data *data)
 	data->forks = SEM_FAILED;
 	data->print = SEM_FAILED;
 	data->death = SEM_FAILED;
+	data->done = SEM_FAILED;
+	data->eaters = SEM_FAILED;
 	data->pids = NULL;
 	unlink_all_sems();
 	if (open_all_sems(data))
