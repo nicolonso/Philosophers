@@ -6,7 +6,7 @@
 /*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 22:22:42 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/09 16:58:52 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/09 17:06:48 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void eat_one_meal(t_philo *p)
 	p->meals_eaten++;
 	pthread_mutex_unlock(&p->meal_mutex);
 	log_print(p, "is eating");
-	ft_usleep(p->data->time_to_die);
+	ft_usleep(p->data->time_to_eat);
 }
 
 static void	mark_done_and_wait(t_philo *p)
