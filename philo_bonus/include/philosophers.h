@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: nalfonso <nalfonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:53:30 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/09 16:55:36 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:10:20 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,9 @@ void	log_print(t_philo *p, char *state);
 
 void	child_run(int id, t_data *data);
 int		supervise(t_data *data);
+
+/* ── Fork process ───────────────────────────────── */
+
+int		fork_children(t_data *data);
 
 #endif

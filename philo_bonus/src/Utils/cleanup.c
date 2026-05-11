@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: nalfonso <nalfonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 22:22:35 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/09 16:57:47 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:24:05 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	cleanup(t_data *data)
 {
 	if (data->forks != SEM_FAILED)
 		sem_close(data->forks);
-	if (data->print !=  SEM_FAILED)
+	if (data->print != SEM_FAILED)
 		sem_close(data->print);
 	if (data->death != SEM_FAILED)
 		sem_close(data->death);

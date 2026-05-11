@@ -1,7 +1,7 @@
 # Makefile
 
 #Standard
-NAME				= philosophers_bonus
+NAME				= philo_bonus
 
 
 # Directories
@@ -24,7 +24,8 @@ ROUTINE_DIR			=	$(SRC_DIR)Routine/routine.c
 MONITOR_DIR			=	$(SRC_DIR)Monitor/supervisor.c
 UTILS_DIR			=	$(SRC_DIR)Utils/time.c \
 						$(SRC_DIR)Utils/cleanup.c \
-						$(SRC_DIR)Utils/log.c
+						$(SRC_DIR)Utils/log.c \
+						$(SRC_DIR)Utils/fork.c
 
 
 # Concatenate all source files

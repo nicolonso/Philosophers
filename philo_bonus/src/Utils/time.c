@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: nalfonso <nalfonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 22:11:38 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/07 22:08:58 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:24:25 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	ft_usleep(long ms)
 
 	start = get_time_ms();
 	while ((get_time_ms() - start) < ms)
-		usleep(500);	
+		usleep(500);
 }

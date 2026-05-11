@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: nalfonso <nalfonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 21:15:32 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/09 16:57:15 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:22:33 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static void	unlink_all_sems(void)
 
 static int	open_all_sems(t_data *data)
 {
+	int	eat;
+
 	data->forks = sem_open(SEM_FORKS, O_CREAT | O_EXCL, 0644,
 			data->nb_philo);
 	if (data->forks == SEM_FAILED)
@@ -36,11 +38,13 @@ static int	open_all_sems(t_data *data)
 	data->done = sem_open(SEM_DONE, O_CREAT | O_EXCL, 0644, 0);
 	if (data->done == SEM_FAILED)
 		return (1);
-	data->eaters = sem_open(SEM_EATERS, O_CREAT | O_EXCL, 0644,
-		(data->nb_philo / 2 > 0) ? data->nb_philo / 2 : 1);
+	eat = data->nb_philo / 2;
+	if (eat <= 0)
+		eat = 1;
+	data->eaters = sem_open(SEM_EATERS, O_CREAT | O_EXCL, 0644, eat);
 	if (data->eaters == SEM_FAILED)
 		return (1);
-	return (0);	
+	return (0);
 }
 
 int	init_data(t_data *data)

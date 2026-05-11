@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   supervisor.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: nalfonso <nalfonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 22:22:49 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/09 16:24:19 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:22:51 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	*done_counter(void *arg)
 {
-	t_data *data;
+	t_data	*data;
 	int		i;
 
 	data = (t_data *)arg;

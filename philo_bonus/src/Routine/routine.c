@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nalfonso <nalfonso@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: nalfonso <nalfonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 22:22:42 by nalfonso          #+#    #+#             */
-/*   Updated: 2026/05/09 17:06:48 by nalfonso         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:23:41 by nalfonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-static void *death_watcher(void *arg)
+static void	*death_watcher(void *arg)
 {
 	t_philo	*p;
 	long	now;
@@ -39,7 +39,7 @@ static void *death_watcher(void *arg)
 	return (NULL);
 }
 
-static void take_two_forks(t_philo *p)
+static void	take_two_forks(t_philo *p)
 {
 	sem_wait(p->data->eaters);
 	sem_wait(p->data->forks);
@@ -48,7 +48,7 @@ static void take_two_forks(t_philo *p)
 	log_print(p, "has taken a fork");
 }
 
-static void eat_one_meal(t_philo *p)
+static void	eat_one_meal(t_philo *p)
 {
 	pthread_mutex_lock(&p->meal_mutex);
 	p->last_meal = get_time_ms();
@@ -70,7 +70,7 @@ static void	mark_done_and_wait(t_philo *p)
 
 void	child_run(int id, t_data *data)
 {
-	t_philo philo;
+	t_philo	philo;
 
 	philo.id = id + 1;
 	philo.meals_eaten = 0;

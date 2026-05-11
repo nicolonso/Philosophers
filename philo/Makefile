@@ -1,7 +1,7 @@
 # Makefile
 
 #Standard
-NAME				= philosophers
+NAME				= philo
 
 
 # Directories
