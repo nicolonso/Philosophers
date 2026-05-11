@@ -125,6 +125,6 @@ available in [`PHILOSOPHERS_EXPLAINED.md`](PHILOSOPHERS_EXPLAINED.md).
 ### Use of AI
 
 AI assistance was used as a structured study aid throughout the project. The
-work itself — typing the code, running compilation, reading errors, running
-tests, and making the program work — was done by me. AI was used for the
+work itself, typing the code, running compilation, reading errors, running
+tests, and making the program work, was done by me. AI was used for the
 following well-defined tasks:
